@@ -103,11 +103,11 @@ function App() {
               </div>
             )}
             {referal && (
-              <div>
+              <form className="form-control">
                 <img src={success} alt="success" onClick={() => {}} />
                 <b> Your email is confirmed!</b>
                 <input
-                  className="form-control email-input"
+                  className=" email-input"
                   type="email"
                   placeholder="Enter your email address"
                   name="email"
@@ -118,32 +118,32 @@ function App() {
                 <button type="button" id="btnToggle" className="copyButton">
                   Copy
                 </button>
-              </div>
+              </form>
             )}
             {!referal && (
-              <div>
+              <form>
                 <input
-                  className="form-control email-input"
+                  className="email-input form-control"
                   type="email"
                   placeholder="Enter your email address"
                   name="email"
                   id="email"
                   value={payload.email || ""}
                   onChange={handleChange}
-                ></input>
+                />
                 <button type="button" id="btnToggle" class="emailIcon">
                   <img
                     src={email}
                     alt="email"
                     className="email"
-                    //style={{ height: 32, marginLeft: 25, marginTop: 10, cursor:"pointer"}}
+                    
                     onClick={() => {}}
                   />
                 </button>
                 <button className="referalButton" onClick={submit}>
                   Get Referal Link
                 </button>
-              </div>
+              </form>
             )}
             <p style={{ marginTop: "80px" }}>Limits on max rewards apply.</p>
           </div>

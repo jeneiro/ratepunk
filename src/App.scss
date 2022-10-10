@@ -317,7 +317,9 @@ padding: 0;
     overflow-y: hidden;
     top: 50px;
     left: 0px;
+    z-index: 3;
   }
+ 
 
   .navigation > .navigation-links > a {
     display: block;
@@ -334,7 +336,7 @@ padding: 0;
   .firstDiv {
     margin-left: 10px;
     margin-right: 10px;
-    z-index: -1;
+  
   }
   .secondDiv {
     margin-top: -60px;
@@ -383,3 +385,17 @@ padding-bottom: 20px;
   float: "right";
 }
 //other css
+
+.form-inline span {
+  display:block;
+}
+
+.form-inline span:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.form-inline .col-lg-12 {
+  clear:both;
+}
