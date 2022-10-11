@@ -21,7 +21,9 @@ function App() {
   let regex = new RegExp("[a-z0-9]+@[a-z]+.+[a-z]{2,3}");
   const [payload, setPayload] = useState({});
   const [errorMsg, setErrorMsg] = useState(false);
-  const [errorTxt, setErrorTxt] = useState("*Kindly enter a valid email address");
+  const [errorTxt, setErrorTxt] = useState(
+    "*Kindly enter a valid email address"
+  );
   const [referalLink, seReferalLink] = useState(
     "https://ratepunk.com/referral"
   ); //
@@ -37,7 +39,8 @@ function App() {
     "X-Master-Key":
       "$2b$10$gkit1jnegPr/O4DcrOyQEe3nne.zf1AaHN.kjSoIqGfapyD9q5PHe",
   };
-  function submit() {
+  function submit(e) {
+    e.preventDefault();
     const validateEmail = regex.test(payload.email);
     console.log(validateEmail);
     if (validateEmail) {
@@ -50,7 +53,7 @@ function App() {
         .catch((err) => {
           console.log(err);
           setErrorMsg(true);
-          setErrorTxt("*Error communicating with server")
+          setErrorTxt("*Error communicating with server");
         });
     } else setErrorMsg(true);
   }
@@ -68,10 +71,7 @@ function App() {
           />
         </div>
         <div className="navigation-btn">
-          <label htmlFor="navigation-check">
-           
-           
-          </label>
+          <label htmlFor="navigation-check"></label>
         </div>
 
         <div className="navigation-links">
@@ -97,17 +97,13 @@ function App() {
               give you 1 coin for each friend that installs our extension.
               Minimum cash-out at 20 coins.
             </p>
-            {errorMsg && (
-              <div style={{ color: "red" }}>
-                {errorTxt}
-              </div>
-            )}
+            {errorMsg && <div style={{ color: "red" }}>{errorTxt}</div>}
             {referal && (
-              <form className="form-control">
+              <form className="">
                 <img src={success} alt="success" onClick={() => {}} />
                 <b> Your email is confirmed!</b>
                 <input
-                  className=" email-input"
+                  className="form-control email-input"
                   type="email"
                   placeholder="Enter your email address"
                   name="email"
@@ -136,7 +132,6 @@ function App() {
                     src={email}
                     alt="email"
                     className="email"
-                    
                     onClick={() => {}}
                   />
                 </button>
@@ -151,12 +146,7 @@ function App() {
             <div className="row">
               <div className="col-md-4">
                 {" "}
-                <img
-                  src={invite}
-                  alt="invite"
-                  className="center-block"
-
-                />
+                <img src={invite} alt="invite" className="center-block" />
               </div>
               <div className="col-md-8 x">
                 {" "}
@@ -219,7 +209,6 @@ function App() {
                   alt="email"
                   className="email"
                   style={{ float: "left", marginLeft: 25, cursor: "pointer" }}
-                 
                   onClick={() => {
                     window.location =
                       "https://chrome.google.com/webstore/detail/ratepunk-same-hotel-way-c/gdaioanblcnghddimngklkhgcbomfdck?utm_source=ratepunk";
@@ -320,28 +309,58 @@ function App() {
               <div className="social-media row">
                 <div className="social">
                   {" "}
-                  <img src={instagram} alt="Logo" style={{cursor:"pointer"}} onClick={() => {
-                    window.location ="#"}}  />
+                  <img
+                    src={instagram}
+                    alt="Logo"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.location = "#";
+                    }}
+                  />
                 </div>
                 <div className="social">
                   {" "}
-                  <img src={facebook} alt="Logo" style={{cursor:"pointer"}} onClick={() => {
-                    window.location ="#"}}  />
+                  <img
+                    src={facebook}
+                    alt="Logo"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.location = "#";
+                    }}
+                  />
                 </div>
                 <div className="social">
                   {" "}
-                  <img src={linkdin} alt="Logo" style={{cursor:"pointer"}} onClick={() => {
-                    window.location ="#"}}  />
+                  <img
+                    src={linkdin}
+                    alt="Logo"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.location = "#";
+                    }}
+                  />
                 </div>
                 <div className="social">
                   {" "}
-                  <img src={twitter} alt="Logo" style={{cursor:"pointer"}} onClick={() => {
-                    window.location ="#"}} />
+                  <img
+                    src={twitter}
+                    alt="Logo"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.location = "#";
+                    }}
+                  />
                 </div>
                 <div className="social">
                   {" "}
-                  <img src={tiktok} alt="Logo" style={{cursor:"pointer"}} onClick={() => {
-                    window.location ="#"}} />
+                  <img
+                    src={tiktok}
+                    alt="Logo"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.location = "#";
+                    }}
+                  />
                 </div>
               </div>
             </div>
